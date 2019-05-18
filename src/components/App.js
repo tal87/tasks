@@ -1,7 +1,18 @@
 import React from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+
+import Header from "./Header";
+import TaskCreate from "./tasks/TaskCreate";
 
 const App = () => {
-  return <div>App</div>;
+  return (
+    <div className="ui container">
+      <Router>
+        <Header />
+        <Route path="/tasks/create" exact component={TaskCreate} />
+      </Router>
+    </div>
+  );
 };
 
 export default App;
