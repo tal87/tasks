@@ -11,6 +11,9 @@ const Header = () => {
         <Link to="/tasks/create" className="item">
           New Task
         </Link>
+        <Link to="/tasks/list" className="item">
+          Tasks
+        </Link>
       </div>
     </div>
   );

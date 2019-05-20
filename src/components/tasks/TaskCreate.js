@@ -1,8 +1,16 @@
 import React from "react";
 
+import api from "../../api";
+
 class TaskCreate extends React.Component {
-  onFormSubmit = e => {
+  state = { subject: "", text: "" };
+  onFormSubmit = async e => {
+    api.post("/tasks", { subject: this.state.subject, text: this.state.text });
     e.preventDefault();
+  };
+
+  onChange = e => {
+    this.setState({ [e.target.name]: e.target.value });
   };
 
   render() {
@@ -15,13 +23,18 @@ class TaskCreate extends React.Component {
         <div className="field">
           <label>
             Subject
-            <input type="text" name="subject" placeholder="Subject" />
+            <input
+              type="text"
+              name="subject"
+              placeholder="Subject"
+              onChange={e => this.onChange(e)}
+            />
           </label>
         </div>
         <div className="field">
           <label>
             Text
-            <textarea name="text" />
+            <textarea name="text" onChange={e => this.onChange(e)} />
           </label>
         </div>
         <button className="ui button" type="submit">
