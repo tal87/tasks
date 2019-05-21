@@ -1,6 +1,7 @@
 import React from "react";
 
 import api from "../../api";
+import TaskList from "./TaskList";
 
 class TaskCreate extends React.Component {
   state = { subject: "", text: "" };
@@ -15,32 +16,27 @@ class TaskCreate extends React.Component {
 
   render() {
     return (
-      <form
-        method="post"
-        className="ui form"
-        onSubmit={e => this.onFormSubmit(e)}
-      >
-        <div className="field">
-          <label>
-            Subject
-            <input
-              type="text"
-              name="subject"
-              placeholder="Subject"
-              onChange={e => this.onChange(e)}
-            />
-          </label>
-        </div>
-        <div className="field">
-          <label>
-            Text
-            <textarea name="text" onChange={e => this.onChange(e)} />
-          </label>
-        </div>
-        <button className="ui button" type="submit">
-          Submit
-        </button>
-      </form>
+      <div>
+        <TaskList />
+        <form
+          method="post"
+          className="ui form"
+          onSubmit={e => this.onFormSubmit(e)}
+        >
+          <div class="two fields">
+            <div className="field">
+              <input
+                placeholder="Reminder"
+                name="text"
+                onChange={e => this.onChange(e)}
+              />
+            </div>
+            <button className="ui button" type="submit">
+              Submit
+            </button>
+          </div>
+        </form>
+      </div>
     );
   }
 }
