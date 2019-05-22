@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+const showLoginPopup = () => {};
+
 const Header = () => {
   return (
     <div className="ui secondary pointing menu">
@@ -14,6 +16,13 @@ const Header = () => {
         <Link to="/tasks/list" className="item">
           Tasks
         </Link>
+        <button
+          onClick={showLoginPopup}
+          className="item"
+          style={{ outline: "none", cursor: "pointer" }}
+        >
+          Login
+        </button>
       </div>
     </div>
   );
