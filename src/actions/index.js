@@ -2,11 +2,11 @@ import api from "../api";
 import * as types from "./types";
 
 export const fetchTasks = () => {
-  return async () => {
+  return async dispatch => {
     let resp = await api("/tasks");
-    return {
+    dispatch({
       type: types.FETCH_TASKS,
       payload: resp.data
-    };
+    });
   };
 };

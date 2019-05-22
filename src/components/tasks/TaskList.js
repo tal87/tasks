@@ -1,17 +1,16 @@
 import React from "react";
-import api from "../../api";
+import { connect } from "react-redux";
 
+import { fetchTasks } from "../../actions";
 import Task from "./Task";
 
 class TaskList extends React.Component {
-  state = { tasks: [] };
   async componentDidMount() {
-    let resp = await api("/tasks");
-    this.setState({ tasks: resp.data });
+    this.props.fetchTasks();
   }
 
   renderTasks() {
-    let tasks = this.state.tasks;
+    let tasks = this.props.tasks;
     return tasks.map(task => {
       return <Task key={task._id} subject={task.subject} text={task.text} />;
     });
@@ -22,4 +21,11 @@ class TaskList extends React.Component {
   }
 }
 
-export default TaskList;
+const mapStateToProps = state => {
+  return state;
+};
+
+export default connect(
+  mapStateToProps,
+  { fetchTasks }
+)(TaskList);

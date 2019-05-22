@@ -23,7 +23,7 @@ class TaskCreate extends React.Component {
           className="ui form"
           onSubmit={e => this.onFormSubmit(e)}
         >
-          <div class="two fields">
+          <div className="two fields">
             <div className="field">
               <input
                 placeholder="Reminder"
