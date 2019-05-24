@@ -1,12 +1,14 @@
 import React from "react";
+import { connect } from "react-redux";
 
-import api from "../../api";
+import { createTask } from "../../actions";
 import TaskList from "./TaskList";
 
 class TaskCreate extends React.Component {
   state = { subject: "", text: "" };
   onFormSubmit = async e => {
-    api.post("/tasks", { subject: this.state.subject, text: this.state.text });
+    // api.post("/tasks", { subject: this.state.subject, text: this.state.text });
+    this.props.createTask(this.state.text);
     e.preventDefault();
   };
 
@@ -41,4 +43,11 @@ class TaskCreate extends React.Component {
   }
 }
 
-export default TaskCreate;
+const mapStateToProps = state => state;
+
+export default connect(
+  mapStateToProps,
+  {
+    createTask
+  }
+)(TaskCreate);

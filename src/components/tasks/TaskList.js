@@ -17,7 +17,11 @@ class TaskList extends React.Component {
   }
 
   render() {
-    return <div>{this.renderTasks()}</div>;
+    return (
+      <div style={{ height: "200px", overflowY: "auto" }}>
+        {this.renderTasks()}
+      </div>
+    );
   }
 }
 
