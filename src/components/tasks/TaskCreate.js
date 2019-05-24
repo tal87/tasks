@@ -5,10 +5,10 @@ import { createTask } from "../../actions";
 import TaskList from "./TaskList";
 
 class TaskCreate extends React.Component {
-  state = { subject: "", text: "" };
+  state = { text: "" };
   onFormSubmit = async e => {
-    // api.post("/tasks", { subject: this.state.subject, text: this.state.text });
     this.props.createTask(this.state.text);
+    this.setState({ text: "" });
     e.preventDefault();
   };
 
@@ -31,6 +31,7 @@ class TaskCreate extends React.Component {
                 placeholder="Reminder"
                 name="text"
                 onChange={e => this.onChange(e)}
+                value={this.state.text}
               />
             </div>
             <button className="ui button" type="submit">
