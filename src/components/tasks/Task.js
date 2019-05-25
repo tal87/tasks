@@ -1,4 +1,7 @@
 import React from "react";
+import { connect } from "react-redux";
+
+import { deleteTask } from "../../actions";
 
 class Task extends React.Component {
   state = { done: false };
@@ -6,15 +9,22 @@ class Task extends React.Component {
     this.setState({ done: e.target.checked });
   };
 
-  handleClick = e => {
+  handleTaskClick = () => {
     this.setState({ done: !this.state.done });
+  };
+
+  handleDeleteClick = e => {
+    e.stopPropagation();
+    // console.log("deleting... " + this.props.id);
+    this.props.deleteTask(this.props.id);
   };
 
   renderHelper() {
     if (this.state.done) {
       return (
         <span>
-          <del>{this.props.text}</del>Delete
+          <del>{this.props.text}</del>
+          <button onClick={e => this.handleDeleteClick(e)}>Delete</button>
         </span>
       );
     } else {
@@ -24,7 +34,7 @@ class Task extends React.Component {
 
   render() {
     return (
-      <div style={{ padding: "10px" }} onClick={e => this.handleClick(e)}>
+      <div style={{ padding: "10px" }} onClick={() => this.handleTaskClick()}>
         <input
           type="checkbox"
           checked={this.state.done}
@@ -36,4 +46,11 @@ class Task extends React.Component {
   }
 }
 
-export default Task;
+const mapStateToProps = state => {
+  return state;
+};
+
+export default connect(
+  mapStateToProps,
+  { deleteTask }
+)(Task);

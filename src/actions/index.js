@@ -15,11 +15,17 @@ export const fetchTasks = () => {
 
 export const createTask = text => {
   return async dispatch => {
-    let resp = await api.post("/tasks", {
+    await api.post("/tasks", {
       text: text
     });
 
-    console.log("finish insert " + resp);
+    fetchTasks()(dispatch);
+  };
+};
+
+export const deleteTask = id => {
+  return async dispatch => {
+    await api.delete(`/tasks?id=${id}`);
     fetchTasks()(dispatch);
   };
 };

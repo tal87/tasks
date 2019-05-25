@@ -12,7 +12,14 @@ class TaskList extends React.Component {
   renderTasks() {
     let tasks = this.props.tasks;
     return tasks.map(task => {
-      return <Task key={task._id} subject={task.subject} text={task.text} />;
+      return (
+        <Task
+          key={task._id}
+          id={task._id}
+          subject={task.subject}
+          text={task.text}
+        />
+      );
     });
   }
 
