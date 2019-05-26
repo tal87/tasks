@@ -1,14 +1,9 @@
 import { combineReducers } from "redux";
 
-import * as types from "../actions/types";
+import tasks from "./tasks";
+import login from "./login";
 
 export default combineReducers({
-  tasks: (state = [], action) => {
-    switch (action.type) {
-      case types.FETCH_TASKS:
-        return action.payload;
-      default:
-        return state;
-    }
-  }
+  tasks,
+  login
 });

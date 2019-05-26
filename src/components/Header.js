@@ -1,9 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 
-const showLoginPopup = () => {};
+import { showLoginPopup } from "../actions";
 
-const Header = () => {
+const Header = props => {
   return (
     <div className="ui secondary pointing menu">
       <Link to="/" className="item">
@@ -17,7 +18,7 @@ const Header = () => {
           Tasks
         </Link>
         <button
-          onClick={showLoginPopup}
+          onClick={e => props.showLoginPopup()}
           className="item"
           style={{ outline: "none", cursor: "pointer" }}
         >
@@ -28,4 +29,7 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default connect(
+  null,
+  { showLoginPopup }
+)(Header);

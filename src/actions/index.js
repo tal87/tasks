@@ -29,3 +29,9 @@ export const deleteTask = id => {
     fetchTasks()(dispatch);
   };
 };
+
+export const showLoginPopup = () => {
+  return {
+    type: types.LOGIN_BUTTON_CLICK
+  };
+};
