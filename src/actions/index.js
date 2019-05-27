@@ -30,8 +30,14 @@ export const deleteTask = id => {
   };
 };
 
-export const showLoginPopup = () => {
+export const showModal = () => {
   return {
-    type: types.LOGIN_BUTTON_CLICK
+    type: types.SHOW_MODAL
+  };
+};
+
+export const hideModal = () => {
+  return {
+    type: types.HIDE_MODAL
   };
 };

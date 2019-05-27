@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import Header from "./Header";
 import TaskCreate from "./tasks/TaskCreate";
 import TaskList from "./tasks/TaskList";
-import Modal from "./Modal";
+import Modal from "./Modal/Modal";
 
 const App = props => {
   return (
@@ -14,7 +14,7 @@ const App = props => {
         <Header />
         <Route path="/tasks/list" exact component={TaskList} />
         <Route path="/tasks/create" exact component={TaskCreate} />
-        {props.login.showModal && <Modal />}
+        {props.modal.showModal && <Modal />}
       </Router>
     </div>
   );

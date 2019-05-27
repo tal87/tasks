@@ -1,8 +1,19 @@
 import React from "react";
+import { connect } from "react-redux";
 
-const Modal = () => {
+import { hideModal } from "../../actions";
+
+const onBackgroundClick = (e, props) => {
+  if (e.target.id === "modal_container") {
+    props.hideModal();
+  }
+};
+
+const Modal = props => {
   return (
     <div
+      id="modal_container"
+      onClick={e => onBackgroundClick(e, props)}
       style={{
         position: "fixed",
         top: "0",
@@ -30,4 +41,7 @@ const Modal = () => {
   );
 };
 
-export default Modal;
+export default connect(
+  null,
+  { hideModal }
+)(Modal);
