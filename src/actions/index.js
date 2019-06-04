@@ -2,10 +2,8 @@ import api from "../api";
 import * as types from "./types";
 
 export const fetchTasks = () => {
-  console.log("fetching tasks");
   return async dispatch => {
     let resp = await api("/tasks");
-    console.log("now dispatching");
     dispatch({
       type: types.FETCH_TASKS,
       payload: resp.data
@@ -30,14 +28,14 @@ export const deleteTask = id => {
   };
 };
 
-export const showModal = () => {
+export const showLogin = () => {
   return {
-    type: types.SHOW_MODAL
+    type: types.SHOW_LOGIN
   };
 };
 
-export const hideModal = () => {
+export const hideLogin = () => {
   return {
-    type: types.HIDE_MODAL
+    type: types.HIDE_LOGIN
   };
 };

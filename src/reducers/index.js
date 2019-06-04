@@ -1,9 +1,9 @@
 import { combineReducers } from "redux";
 
 import tasks from "./tasks";
-import modal from "./modal";
+import login from "./login";
 
 export default combineReducers({
   tasks,
-  modal
+  login
 });
