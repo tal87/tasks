@@ -1,11 +1,12 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import { hideModal } from "../../actions";
+import "./Modal.css";
+import { hideLogin } from "../../actions";
 
 const onBackgroundClick = (e, props) => {
   if (e.target.id === "modal_container") {
-    props.hideModal();
+    props.hideLogin();
   }
 };
 
@@ -13,29 +14,17 @@ const Modal = props => {
   return (
     <div
       id="modal_container"
+      className="modal-background"
       onClick={e => onBackgroundClick(e, props)}
-      style={{
-        position: "fixed",
-        top: "0",
-        left: "0",
-        width: "100%",
-        height: "100%",
-        zIndex: "100",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        background: "rgba(0,0,0,0.5)"
-      }}
     >
-      <div
-        style={{
-          background: "#fff",
-          width: "600px",
-          height: "600px",
-          textAlign: "center"
-        }}
-      >
-        <h1>I am a modal</h1>
+      <div className="modal-content">
+        <div style={props.headerStyle}>
+          <h3>Modal Header</h3>
+        </div>
+        <hr />
+        <div style={props.bodyStyle}>
+          <h3>Modal Body</h3>
+        </div>
       </div>
     </div>
   );
@@ -43,5 +32,5 @@ const Modal = props => {
 
 export default connect(
   null,
-  { hideModal }
+  { hideLogin }
 )(Modal);

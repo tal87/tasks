@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
-import { showModal } from "../actions";
+import { showLogin } from "../actions";
 
 const Header = props => {
   return (
@@ -18,7 +18,7 @@ const Header = props => {
           Tasks
         </Link>
         <button
-          onClick={props.showModal}
+          onClick={props.showLogin}
           className="item"
           style={{ outline: "none", cursor: "pointer" }}
         >
@@ -31,5 +31,5 @@ const Header = props => {
 
 export default connect(
   null,
-  { showModal }
+  { showLogin }
 )(Header);
