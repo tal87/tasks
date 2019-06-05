@@ -18,13 +18,11 @@ const Modal = props => {
       onClick={e => onBackgroundClick(e, props)}
     >
       <div className="modal-content">
-        <div style={props.headerStyle}>
-          <h3>Modal Header</h3>
+        <div className="modal-header">
+          <h3>{props.title}</h3>
         </div>
         <hr />
-        <div style={props.bodyStyle}>
-          <h3>Modal Body</h3>
-        </div>
+        <div className="modal-body">{props.body}</div>
       </div>
     </div>
   );
