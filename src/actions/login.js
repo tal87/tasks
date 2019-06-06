@@ -1,4 +1,5 @@
 import * as types from "./types";
+import { fetchTasks } from "../actions";
 import api from "../api";
 
 export const login = (username, password) => {
@@ -15,6 +16,8 @@ export const login = (username, password) => {
         payload: resp.data["id"],
         type: types.LOGIN_SUCCESS
       });
+
+      dispatch(fetchTasks(resp.data["id"]));
     } else {
       dispatch({
         type: types.LOGIN_FAIL,
