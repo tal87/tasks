@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 
+import { login } from "../../actions";
 import Modal from "../modal/Modal";
 
 class Login extends React.Component {
@@ -36,6 +37,7 @@ class Login extends React.Component {
           <button type="submit" className="ui button">
             Submit
           </button>
+          <span>{this.props.loginStatus.status}</span>
         </form>
       </div>
     );
@@ -43,8 +45,7 @@ class Login extends React.Component {
 
   onLoginClick = e => {
     e.preventDefault();
-    console.log(`username: ${this.state.username}`);
-    console.log(`password: ${this.state.password}`);
+    this.props.login(this.state.username, this.state.password);
   };
 
   onInputChange = e => {
@@ -52,8 +53,17 @@ class Login extends React.Component {
   };
 
   render() {
+    console.log("props: " + JSON.stringify(this.props));
     return <Modal title="Login" body={this.loginBody()} />;
   }
 }
 
-export default connect()(Login);
+const mapStateToProps = state => {
+  console.log("state " + JSON.stringify(state));
+  return state;
+};
+
+export default connect(
+  mapStateToProps,
+  { login }
+)(Login);

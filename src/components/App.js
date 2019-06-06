@@ -14,7 +14,7 @@ const App = props => {
         <Header />
         <Route path="/tasks/list" exact component={TaskList} />
         <Route path="/tasks/create" exact component={TaskCreate} />
-        {props.login.showLogin && <Login />}
+        {props.loginStatus.showLogin && <Login />}
       </Router>
     </div>
   );
