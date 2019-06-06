@@ -6,7 +6,7 @@ import Task from "./Task";
 
 class TaskList extends React.Component {
   async componentDidMount() {
-    this.props.fetchTasks();
+    this.props.fetchTasks(this.props.loginStatus.user.id);
   }
 
   renderTasks() {

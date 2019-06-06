@@ -11,10 +11,9 @@ export const login = (username, password) => {
     );
 
     if (resp) {
-      status = "you are now logged in";
       dispatch({
-        type: types.LOGIN_SUCCESS,
-        payload: status
+        payload: resp.data["id"],
+        type: types.LOGIN_SUCCESS
       });
     } else {
       dispatch({
@@ -22,6 +21,12 @@ export const login = (username, password) => {
         payload: status
       });
     }
+  };
+};
+
+export const logout = () => {
+  return {
+    type: types.LOGOUT
   };
 };
 

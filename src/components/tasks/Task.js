@@ -15,7 +15,7 @@ class Task extends React.Component {
 
   handleDeleteClick = e => {
     e.stopPropagation();
-    this.props.deleteTask(this.props.id);
+    this.props.deleteTask(this.props.id, this.props.loginStatus.user.id);
   };
 
   renderHelper() {

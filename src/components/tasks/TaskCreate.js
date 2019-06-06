@@ -6,8 +6,8 @@ import TaskList from "./TaskList";
 
 class TaskCreate extends React.Component {
   state = { text: "" };
-  onFormSubmit = async e => {
-    this.props.createTask(this.state.text);
+  onFormSubmit = e => {
+    this.props.createTask(this.props.loginStatus.user.id, this.state.text);
     this.setState({ text: "" });
     e.preventDefault();
   };

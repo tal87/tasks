@@ -2,7 +2,31 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
-import { showLogin } from "../actions";
+import { showLogin, logout } from "../actions";
+
+const renderLogin = props => {
+  if (props.loginStatus.user.isLoggedIn) {
+    return (
+      <button
+        onClick={props.logout}
+        className="item"
+        style={{ outline: "none", cursor: "pointer" }}
+      >
+        Logout
+      </button>
+    );
+  } else {
+    return (
+      <button
+        onClick={props.showLogin}
+        className="item"
+        style={{ outline: "none", cursor: "pointer" }}
+      >
+        Login
+      </button>
+    );
+  }
+};
 
 const Header = props => {
   return (
@@ -17,19 +41,15 @@ const Header = props => {
         <Link to="/tasks/list" className="item">
           Tasks
         </Link>
-        <button
-          onClick={props.showLogin}
-          className="item"
-          style={{ outline: "none", cursor: "pointer" }}
-        >
-          Login
-        </button>
+        {renderLogin(props)}
       </div>
     </div>
   );
 };
 
+const mapStateToProps = state => state;
+
 export default connect(
-  null,
-  { showLogin }
+  mapStateToProps,
+  { showLogin, logout }
 )(Header);
