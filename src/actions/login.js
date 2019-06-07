@@ -28,8 +28,11 @@ export const login = (username, password) => {
 };
 
 export const logout = () => {
-  return {
-    type: types.LOGOUT
+  return dispatch => {
+    dispatch(fetchTasks(""));
+    dispatch({
+      type: types.LOGOUT
+    });
   };
 };
 
