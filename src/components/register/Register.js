@@ -1,16 +1,36 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import { login, showRegister } from "../../actions";
+import { showLogin } from "../../actions";
 import Modal from "../modal/Modal";
 
 class Login extends React.Component {
-  state = { username: "", password: "" };
-  loginBody = () => {
+  state = { username: "", password: "", fname: "", lname: "" };
+  registerBody = () => {
     return (
       <div style={{ margin: "0 10px" }}>
         <form onSubmit={e => this.onLoginClick(e)} className="ui form">
           <div className="field">
+            <label>
+              First Name
+              <input
+                type="text"
+                name="fname"
+                placeholder="First Name"
+                value={this.state.fname}
+                onChange={e => this.onInputChange(e)}
+              />
+            </label>
+            <label>
+              Last Name
+              <input
+                type="text"
+                name="lname"
+                placeholder="Last Name"
+                value={this.state.lname}
+                onChange={e => this.onInputChange(e)}
+              />
+            </label>
             <label>
               Username
               <input
@@ -38,7 +58,7 @@ class Login extends React.Component {
             Submit
           </button>
           <span>{this.props.loginStatus.status}</span>
-          <button onClick={e => this.onRegisterClick(e)}>Register</button>
+          <button onClick={e => this.onLoginClick(e)}>Login</button>
         </form>
       </div>
     );
@@ -46,12 +66,11 @@ class Login extends React.Component {
 
   onRegisterClick = e => {
     e.preventDefault();
-    this.props.showRegister();
   };
 
   onLoginClick = e => {
     e.preventDefault();
-    this.props.login(this.state.username, this.state.password);
+    this.props.showLogin();
   };
 
   onInputChange = e => {
@@ -60,7 +79,7 @@ class Login extends React.Component {
 
   render() {
     console.log("props: " + JSON.stringify(this.props));
-    return <Modal title="Login" body={this.loginBody()} />;
+    return <Modal title="Register" body={this.registerBody()} />;
   }
 }
 
@@ -71,5 +90,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { login, showRegister }
+  { showLogin }
 )(Login);

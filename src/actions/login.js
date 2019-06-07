@@ -47,3 +47,9 @@ export const hideLogin = () => {
     type: types.HIDE_LOGIN
   };
 };
+
+export const showRegister = () => {
+  return {
+    type: types.SHOW_REGISTER
+  };
+};

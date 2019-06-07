@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import { showLogin, logout } from "../actions";
 
 const renderLogin = props => {
-  if (props.loginStatus.user.isLoggedIn) {
+  if (props.loginStatus.user && props.loginStatus.user.isLoggedIn) {
     return (
       <button
         onClick={props.logout}
@@ -22,7 +22,7 @@ const renderLogin = props => {
         className="item"
         style={{ outline: "none", cursor: "pointer" }}
       >
-        Login
+        Login/Register
       </button>
     );
   }

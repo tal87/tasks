@@ -6,6 +6,7 @@ import Header from "./Header";
 import TaskCreate from "./tasks/TaskCreate";
 import TaskList from "./tasks/TaskList";
 import Login from "./login/Login";
+import Register from "./register/Register";
 
 const App = props => {
   return (
@@ -15,6 +16,7 @@ const App = props => {
         <Route path="/tasks/list" exact component={TaskList} />
         <Route path="/tasks/create" exact component={TaskCreate} />
         {props.loginStatus.showLogin && <Login />}
+        {props.loginStatus.showRegister && <Register />}
       </Router>
     </div>
   );

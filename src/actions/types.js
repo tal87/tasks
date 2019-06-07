@@ -5,3 +5,4 @@ export const HIDE_LOGIN = "HIDE_LOGIN";
 export const LOGIN_FAIL = "LOGIN_FAIL";
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 export const LOGOUT = "LOGOUT";
+export const SHOW_REGISTER = "SHOW_REGISTER";
