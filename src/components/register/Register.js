@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { showLogin } from "../../actions";
 import Modal from "../modal/Modal";
 
-class Login extends React.Component {
+class Register extends React.Component {
   state = { username: "", password: "", fname: "", lname: "" };
   registerBody = () => {
     return (
@@ -32,11 +32,11 @@ class Login extends React.Component {
               />
             </label>
             <label>
-              Username
+              Email
               <input
                 type="text"
                 name="username"
-                placeholder="username"
+                placeholder="email"
                 value={this.state.username}
                 onChange={e => this.onInputChange(e)}
               />
@@ -91,4 +91,4 @@ const mapStateToProps = state => {
 export default connect(
   mapStateToProps,
   { showLogin }
-)(Login);
+)(Register);

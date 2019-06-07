@@ -12,11 +12,11 @@ class Login extends React.Component {
         <form onSubmit={e => this.onLoginClick(e)} className="ui form">
           <div className="field">
             <label>
-              Username
+              Email
               <input
                 type="text"
                 name="username"
-                placeholder="username"
+                placeholder="email"
                 value={this.state.username}
                 onChange={e => this.onInputChange(e)}
               />
