@@ -6,3 +6,4 @@ export const LOGIN_FAIL = "LOGIN_FAIL";
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 export const LOGOUT = "LOGOUT";
 export const SHOW_REGISTER = "SHOW_REGISTER";
+export const REGISTER_FAIL = "REGISTER_FAIL";

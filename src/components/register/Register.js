@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import { showLogin } from "../../actions";
+import { showLogin, register } from "../../actions";
 import Modal from "../modal/Modal";
 
 class Register extends React.Component {
@@ -9,7 +9,7 @@ class Register extends React.Component {
   registerBody = () => {
     return (
       <div style={{ margin: "0 10px" }}>
-        <form onSubmit={e => this.onLoginClick(e)} className="ui form">
+        <form onSubmit={e => this.onRegisterClick(e)} className="ui form">
           <div className="field">
             <label>
               First Name
@@ -66,6 +66,14 @@ class Register extends React.Component {
 
   onRegisterClick = e => {
     e.preventDefault();
+    let data = {
+      username: this.state.username,
+      password: this.state.password,
+      firstName: this.state.fname,
+      lastName: this.state.lname
+    };
+
+    this.props.register({ data });
   };
 
   onLoginClick = e => {
@@ -90,5 +98,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { showLogin }
+  { showLogin, register }
 )(Register);

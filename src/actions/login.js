@@ -20,6 +20,29 @@ export const login = (username, password) => {
       dispatch(fetchTasks(resp.data["id"]));
     } else {
       dispatch({
+        type: types.REGISTER_FAIL,
+        payload: status
+      });
+    }
+  };
+};
+
+export const register = data => {
+  return async dispatch => {
+    let status = "";
+    let resp = await api.post("/register", data).catch(err => {
+      status = "bad username/password";
+    });
+
+    if (resp) {
+      dispatch({
+        payload: resp.data["id"],
+        type: types.LOGIN_SUCCESS
+      });
+
+      dispatch(fetchTasks(resp.data["id"]));
+    } else {
+      dispatch({
         type: types.LOGIN_FAIL,
         payload: status
       });
