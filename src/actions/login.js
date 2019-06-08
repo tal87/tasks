@@ -7,7 +7,7 @@ export const login = (username, password) => {
     let status = "";
     let resp = await api(`/login?user=${username}&password=${password}`).catch(
       err => {
-        status = "bad username/password";
+        status = err.response.data;
       }
     );
 
@@ -20,7 +20,7 @@ export const login = (username, password) => {
       dispatch(fetchTasks(resp.data["id"]));
     } else {
       dispatch({
-        type: types.REGISTER_FAIL,
+        type: types.LOGIN_FAIL,
         payload: status
       });
     }
@@ -43,7 +43,7 @@ export const register = data => {
       dispatch(fetchTasks(resp.data["id"]));
     } else {
       dispatch({
-        type: types.LOGIN_FAIL,
+        type: types.REGISTER_FAIL,
         payload: status
       });
     }

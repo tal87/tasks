@@ -37,8 +37,8 @@ class Login extends React.Component {
           <button type="submit" className="ui button">
             Submit
           </button>
-          <span>{this.props.loginStatus.status}</span>
           <button onClick={e => this.onRegisterClick(e)}>Register</button>
+          <div className="danger">{this.props.loginStatus.status}</div>
         </form>
       </div>
     );
