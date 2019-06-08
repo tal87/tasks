@@ -38,7 +38,13 @@ class Login extends React.Component {
             Submit
           </button>
           <button onClick={e => this.onRegisterClick(e)}>Register</button>
-          <div className="danger">{this.props.loginStatus.status}</div>
+          {this.props.loginStatus.status && (
+            <div className="ui red message">
+              <i class="close icon" />
+              <i className="exclamation circle icon" />
+              {this.props.loginStatus.status}
+            </div>
+          )}
         </form>
       </div>
     );
