@@ -1,0 +1,7 @@
+.btnEdit {
+  display: none;
+}
+
+.task:hover .btnEdit {
+  display: inline;
+}
