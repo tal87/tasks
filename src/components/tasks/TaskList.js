@@ -10,8 +10,7 @@ class TaskList extends React.Component {
   }
 
   handleTaskShare(task, users) {
-    task.users = [...task.users, ...users];
-    this.props.shareTask(task);
+    this.props.shareTask(task, users);
   }
 
   renderTasks() {

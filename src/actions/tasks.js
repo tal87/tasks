@@ -33,10 +33,11 @@ export const deleteTask = (id, uid) => {
   };
 };
 
-export const shareTask = task => {
+export const shareTask = (task, users) => {
   return async dispatch => {
     await api.put("/tasks", {
-      task
+      task,
+      users
     });
   };
 };
