@@ -32,3 +32,11 @@ export const deleteTask = (id, uid) => {
     fetchTasks(uid)(dispatch);
   };
 };
+
+export const shareTask = task => {
+  return async dispatch => {
+    await api.put("/tasks", {
+      task
+    });
+  };
+};

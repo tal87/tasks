@@ -1,12 +1,17 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import { fetchTasks } from "../../actions";
+import { fetchTasks, shareTask } from "../../actions";
 import Task from "./Task";
 
 class TaskList extends React.Component {
   async componentDidMount() {
     this.props.fetchTasks(this.props.loginStatus.user.id);
+  }
+
+  handleTaskShare(task, users) {
+    task.users = [...task.users, ...users];
+    this.props.shareTask(task);
   }
 
   renderTasks() {
@@ -18,6 +23,7 @@ class TaskList extends React.Component {
           id={task._id}
           subject={task.subject}
           text={task.text}
+          shareTask={users => this.handleTaskShare(task, users)}
         />
       );
     });
@@ -38,5 +44,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { fetchTasks }
+  { fetchTasks, shareTask }
 )(TaskList);
