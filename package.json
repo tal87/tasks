@@ -2,9 +2,9 @@
   "name": "tasks",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://tal87.github.io/tasks",
   "dependencies": {
     "axios": "^0.18.0",
+    "express": "^4.17.1",
     "gh-pages": "^2.0.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
@@ -15,7 +15,7 @@
     "redux-thunk": "^2.3.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "node server",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
