@@ -4,9 +4,9 @@ const DEFAULT_STATE = { showLogin: false, user: { isLoggedIn: false, id: "" } };
 const loginStatus = (state = DEFAULT_STATE, action) => {
   switch (action.type) {
     case types.SHOW_LOGIN:
-      return { showLogin: true };
+      return { ...state, showLogin: true, showRegister: false };
     case types.HIDE_LOGIN:
-      return { showLogin: false };
+      return { ...state, showLogin: false, showRegister: false };
     case types.LOGIN_FAIL:
       return { ...state, status: action.payload };
     case types.LOGIN_SUCCESS:
@@ -17,7 +17,7 @@ const loginStatus = (state = DEFAULT_STATE, action) => {
     case types.LOGOUT:
       return { ...state, user: { isLoggedIn: false, id: "" } };
     case types.SHOW_REGISTER:
-      return { showRegister: true };
+      return { ...state, showRegister: true };
     default:
       return state;
   }
