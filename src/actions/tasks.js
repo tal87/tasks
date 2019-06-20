@@ -3,11 +3,7 @@ import api from "../api";
 
 export const fetchTasks = id => {
   return async dispatch => {
-    if (!id) {
-      id = "";
-    }
-
-    let resp = await api(`/tasks?user=${id}`);
+    let resp = await api(`/tasks/${id}`);
     dispatch({
       type: types.FETCH_TASKS,
       payload: resp.data

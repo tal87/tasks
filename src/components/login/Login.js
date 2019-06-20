@@ -65,13 +65,11 @@ class Login extends React.Component {
   };
 
   render() {
-    console.log("props: " + JSON.stringify(this.props));
     return <Modal title="Login" body={this.loginBody()} />;
   }
 }
 
 const mapStateToProps = state => {
-  console.log("state " + JSON.stringify(state));
   return state;
 };
 

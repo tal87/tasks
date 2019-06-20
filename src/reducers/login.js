@@ -1,6 +1,9 @@
 import * as types from "../actions/types";
 
-const DEFAULT_STATE = { showLogin: false, user: { isLoggedIn: false, id: "" } };
+const DEFAULT_STATE = {
+  showLogin: false,
+  user: { isLoggedIn: false, id: "all_users" }
+};
 const loginStatus = (state = DEFAULT_STATE, action) => {
   switch (action.type) {
     case types.SHOW_LOGIN:
@@ -15,7 +18,7 @@ const loginStatus = (state = DEFAULT_STATE, action) => {
         user: { isLoggedIn: true, id: action.payload }
       };
     case types.LOGOUT:
-      return { ...state, user: { isLoggedIn: false, id: "" } };
+      return DEFAULT_STATE;
     case types.SHOW_REGISTER:
       return { ...state, showRegister: true };
     default:

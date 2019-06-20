@@ -52,10 +52,10 @@ export const register = data => {
 
 export const logout = () => {
   return dispatch => {
-    dispatch(fetchTasks(""));
-    dispatch({
+    dispatch(fetchTasks("all_users"));
+    return {
       type: types.LOGOUT
-    });
+    };
   };
 };
 

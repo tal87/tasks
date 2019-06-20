@@ -5,7 +5,7 @@ import { fetchTasks, shareTask } from "../../actions";
 import Task from "./Task";
 
 class TaskList extends React.Component {
-  async componentDidMount() {
+  componentDidMount() {
     this.props.fetchTasks(this.props.loginStatus.user.id);
   }
 
